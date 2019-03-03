@@ -96,3 +96,49 @@ ggplot(ff, aes(x = iterations, y = fitness, color = Alg)) +
   labs(title = 'Flip Flop Performance',
        y = 'Fitness',
        x = 'Iterations')
+
+
+#plotting MIMIC paramters
+#loading data
+mm <- read.csv(file.choose(), header = T)
+
+#plotting performance against parameters
+ggplot(mm, aes(x = MM_Param, y = fitness,group = 1)) +
+  geom_line(color = 'red') +
+  theme_gray() +
+  theme(legend.title = element_blank(),
+        legend.position = 'bottom') +
+  labs(title = 'MIMIC Performance',
+       y = 'Fitness',
+       x = 'Samples to keep')
+
+
+
+#plotting for NN
+#loading data
+nn <- read.csv(file.choose(), header = T)
+
+#plotting performance of the 3 algorithms
+ggplot(nn, aes(x = iterations, y = Accuracy, color = Alg)) +
+  geom_line() +
+  theme_light() +
+  theme(legend.title = element_blank(),
+        legend.position = 'bottom') +
+  labs(title = 'Neural Network Training Accuracy',
+       y = 'Accuracy',
+       x = 'Iterations')
+
+#comparing results with assignment 1
+#loading data
+nn_comp <- read.csv(file.choose(), header = T)
+
+#bar chart of testing and training accuracy
+ggplot(nn_comp, aes(x = Alg, y = Acc, fill = Type)) +
+  geom_bar(width = 0.4, stat = 'identity', position = position_dodge(width = .5)) +
+  theme_light() +
+  scale_fill_brewer(palette = 'Paired') +
+  theme(legend.title = element_blank(),
+        legend.position = 'bottom') +
+  labs(title = 'Neural Network Performance Comparison',
+       y = 'Accuracy',
+       x = element_blank()) 

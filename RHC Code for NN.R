@@ -1,10 +1,10 @@
-# Simulated Annealing Weighting of Pima Indians Neural Network
+# Random hill climbing code for Pima Indians Neural Network
 
 require("neuralnet")
 require("gmodels")
 
 # Settings
-iterations <- 10
+iterations <- 500
 
 # Functions
 normalize <- function(x) {
@@ -15,13 +15,11 @@ maxfactor <- function(x) {
   return(which(x == max(x)))
 }
 
-# Data is from:
-# https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data
+#loading data
 pimadata <- read.csv("pima-indians-diabetes.csv", 
                      header = FALSE)
 
-# Column names are from:
-# https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.names
+#changing column names
 colnames(pimadata) <- c("Pregnancies",
                         "GlucoseConcentration",
                         "DiastolicBP",

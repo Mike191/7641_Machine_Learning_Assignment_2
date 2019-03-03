@@ -9,7 +9,7 @@ require("neuralnet")
 require("gmodels")
 
 # Settings
-iterations <- 100
+iterations <- 1500
 
 # Functions
 normalize <- function(x) {
@@ -24,8 +24,7 @@ maxfactor <- function(x) {
 pimadata <- read.csv("pima-indians-diabetes.csv", 
                      header = FALSE)
 
-# Column names are from:
-# https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.names
+#changing column names
 colnames(pimadata) <- c("Pregnancies",
                         "GlucoseConcentration",
                         "DiastolicBP",

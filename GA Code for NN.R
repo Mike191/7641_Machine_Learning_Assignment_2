@@ -9,7 +9,7 @@ require("neuralnet")
 require("gmodels")
 
 # Settings
-iterations <- 100
+iterations <- 500
 
 # Functions
 normalize <- function(x) {
